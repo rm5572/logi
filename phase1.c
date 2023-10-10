@@ -1,6 +1,3 @@
-// Potential Final Version
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -68,7 +65,11 @@ int main() {
         printf("myshell> ");
         fgets(cmd, CMD_SIZE, stdin);
         cmd[strcspn(cmd, "\n")] = 0; // Remove trailing newline
-
+            
+        if (strcmp(cmd, "exit") == 0){
+            exit(EXIT_SUCCESS);
+        }
+        
         // Check for pipes and split commands
         char *commands[MAX_PIPES + 1];
         int i = 0;
@@ -119,5 +120,6 @@ int main() {
 
     return 0;
 }
+
 
 
